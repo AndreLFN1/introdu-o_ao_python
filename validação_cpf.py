@@ -44,6 +44,10 @@ def valida_cpf(cpf):
     for x in cpf:
         lista_cpf.append(int(x))
 
+    if len(lista_cpf) != 11:
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+
     #contadores para a função while
     soma = 0
     i = 0
