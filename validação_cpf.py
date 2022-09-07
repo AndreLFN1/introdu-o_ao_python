@@ -8,6 +8,34 @@ um outro programa que gere CPF's aleatórios que passem no teste.
 '''
 def valida_cpf(cpf):
 
+    #aqui o programa vai avaliar as condições em que o algoritimo falha, mas
+    #que também são números inválidos
+    if cpf == '11111111111':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+    elif cpf == '22222222222':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+    elif cpf == '33333333333':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+    elif cpf == '44444444444':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+    elif cpf == '55555555555':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+    elif cpf == '66666666666':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+    elif cpf == '99999999999':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+    elif cpf == '00000000000':
+        mensagem_erro = print('Este CPF é inválido!')
+        return mensagem_erro
+
+
     #essa lista vai agrupar os numeros do CPF individualmente
     lista_cpf = []
 
@@ -58,7 +86,7 @@ def valida_cpf(cpf):
             print('Este CPF é inválido!')
 
 '''
-Vamos agora gerar CPF's
+Pedindo input para o usuario e validando o CPF:
 '''
 
 
