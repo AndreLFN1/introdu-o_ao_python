@@ -6,47 +6,7 @@ validáveis.
 A ideia aqui é criar um programa verificador de CPF's e depois tentar gerar
 um outro programa que gere CPF's aleatórios que passem no teste.
 '''
-def valida_cpf(cpf):
-
-    #aqui o programa vai avaliar as condições em que o algoritimo falha, mas
-    #que também são números inválidos
-    if cpf == '11111111111':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-    elif cpf == '22222222222':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-    elif cpf == '33333333333':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-    elif cpf == '44444444444':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-    elif cpf == '55555555555':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-    elif cpf == '66666666666':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-    elif cpf == '99999999999':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-    elif cpf == '00000000000':
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
-
-
-    #essa lista vai agrupar os numeros do CPF individualmente
-    lista_cpf = []
-
-    #aqui vamos adicionar numero a numero do CPF em forma de string, convertê-lo
-    #para int e adcionar a lista-cpf
-    for x in cpf:
-        lista_cpf.append(int(x))
-
-    if len(lista_cpf) != 11:
-        mensagem_erro = print('Este CPF é inválido!')
-        return mensagem_erro
+def valida_cpf(lista_cpf):
 
     #contadores para a função while
     soma = 0
@@ -63,9 +23,9 @@ def valida_cpf(cpf):
         #o resto dessa equação valida o primeiro digito do CPF caso ele seja igual
         #a esse resto
     num_validação = (soma*10)%11
+    #print(f'O primeiro numero de validação é: {num_validação}')
     if num_validação == 10:
         num_validação = 0
-    print(f'O primeiro numero de validação é: {num_validação}')
 
 
     if num_validação == lista_cpf[9]:
@@ -81,18 +41,38 @@ def valida_cpf(cpf):
             soma = soma + num
 
         num_validação = (soma*10)%11
+        #print(f'O segundo número de validação é: {num_validação}')
         if num_validação == 10:
             num_validação = 0
-        print(f'O segundo número de validação é: {num_validação}')
         if num_validação == lista_cpf[10]:
             print('Este é um CPF válido!')
+            print(lista_cpf)
+            condição = 1
         else:
-            print('Este CPF é inválido!')
+            condição = 0
 
+        return condição
 '''
-Pedindo input para o usuario e validando o CPF:
+Vamos agora gerar CPF's
 '''
 
 
-cpf = input('Digite um numero de CPF sem pontos ou traços: ')
-valida_cpf(cpf)
+import random
+
+condição = 0
+contador = 1
+while condição != 1:
+    random_cpf = []
+
+    for x in range(11):
+
+        random_num = random.randint(0,9)
+        random_cpf.append(random_num)
+    valida_cpf(random_cpf)
+    print(condição)
+    contador += 1
+    #if condição == 1:
+    #    break  ''''''''''''''''''''''''''''''''''''''
+
+print(f'O numero de tentativas foi:  + {contador}')
+print(f'O CPF válido gerado foi:  + {random_cpf}')
